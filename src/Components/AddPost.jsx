@@ -38,6 +38,7 @@ const AddPost = () => {
       const response = await axios.post('http://localhost:3000/api/roommates', postData);
       console.log(response.data);
       toast.success('Add Post Successful')
+      form.reset();
     } catch (error) {
       console.error('Error adding post:', error);
       toast.error('Error adding post', error.message);
@@ -74,9 +75,9 @@ const AddPost = () => {
           <option value="Not Available">Not Available</option>
         </select>
 
-        <input name="email" type="email" defaultValue={user?.email} readOnly className="input input-bordered w-full bg-gray-100 cursor-not-allowed" />
+        <input name="email" type="email" defaultValue={user?.email} readOnly className="input input-bordered w-full  cursor-not-allowed" />
 
-        <input name="name" type="text" defaultValue={user?.displayName} readOnly className="input input-bordered w-full bg-gray-100 cursor-not-allowed" />
+        <input name="name" type="text" defaultValue={user?.displayName} readOnly className="input input-bordered w-full  cursor-not-allowed" />
 
         <button type="submit" className="btn btn-primary w-full">Add</button>
       </form>

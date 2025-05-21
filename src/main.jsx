@@ -16,6 +16,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import AddPage from './Pages/AddPage.jsx';
 import BrowseListings from './Pages/BrowseListings.jsx';
 import RoommateDetails from './Pages/RoommateDetails.jsx';
+import Private from './Private/Private.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element:<AddPage></AddPage>,
+        element:<Private><AddPage></AddPage></Private>,
       },
       {
         path: "/browse",
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <RoommateDetails></RoommateDetails>,
+        element: <Private><RoommateDetails></RoommateDetails></Private>,
       },
       {
         path: "/my-listings",
