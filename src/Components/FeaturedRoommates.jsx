@@ -7,7 +7,7 @@ const FeaturedRoommates = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/roommates?availability=true&limit=6") // তোমার local JSON path বা API endpoint
+    axios.get("http://localhost:3000/api/roommates?availability=true&limit=6") // API endpoint
       .then(res => {
         console.log(res.data);
         setPosts(res.data);
