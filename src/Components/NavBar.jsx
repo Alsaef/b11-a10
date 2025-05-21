@@ -37,7 +37,7 @@ const Navbar = () => {
           }
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl"><img className="w-[100px]" src={Logo} alt="" /></Link>
+        <Link to="/" className="btn btn-ghost text-xl"><img className="lg:w-[100px] w-[60px]" src={Logo} alt="" /></Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -61,7 +61,7 @@ const Navbar = () => {
 
       <div className="navbar-end gap-3">
 
-
+<>{user?.email&&<button onClick={logOut} className="text-red-500  lg:btn lg:text-red-500 btn-sm ">Logout</button>}</>
 {user?.email&&<div className="dropdown dropdown-end ">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -77,10 +77,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-40">
-        <li><p className="text-sm font-semibold">{user?.displayName || "User"}</p></li>
-        <li><button onClick={logOut} className="text-red-500">Logout</button></li>
-      </ul>
+      
     </div>}
        <button onClick={toggleTheme} className="btn w-[100px] btn-outline rounded-full">
       {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-800" />}

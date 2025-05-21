@@ -17,6 +17,7 @@ import AddPage from './Pages/AddPage.jsx';
 import BrowseListings from './Pages/BrowseListings.jsx';
 import RoommateDetails from './Pages/RoommateDetails.jsx';
 import Private from './Private/Private.jsx';
+import MyList from './Pages/MyList.jsx';
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-listings",
-        element: <div>My Listings</div>,
+        element: <Private><MyList></MyList></Private>
       },
       {
         path: "/login",
