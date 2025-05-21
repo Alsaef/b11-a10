@@ -2,12 +2,14 @@ import { useContext } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const AddPost = () => {
   const { user } = useContext(AuthContext); // user info from context
   const navigate = useNavigate();
 
-  const handleAddPost = (e) => {
+  const handleAddPost = async (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
@@ -32,9 +34,14 @@ const AddPost = () => {
       name
     };
 
-    console.log(postData);
-    // তুমি এখানে API call করে post করতে পারো
-    // navigate('/dashboard') বা অন্য কোথাও redirect করতে পারো
+    try {
+      const response = await axios.post('http://localhost:3000/api/roommates', postData);
+      console.log(response.data);
+      toast.success('Add Post Successful')
+    } catch (error) {
+      console.error('Error adding post:', error);
+      toast.error('Error adding post', error.message);
+    }
   };
 
   return (

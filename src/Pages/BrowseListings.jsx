@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const BrowseListings = () => {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('/data.json')
+    axios.get('http://localhost:3000/api/all-roommates')
       .then(res => {
         setListings(res.data);
+        console.log(res.data);
         setLoading(false);
       })
       .catch(err => {
@@ -59,7 +61,7 @@ const BrowseListings = () => {
                   </span>
                 </td>
                 <td className="px-4 py-2">
-                  <button className="btn btn-sm btn-outline btn-info">See More</button>
+                <Link to={`/details/${item._id}`}>  <button className="btn btn-sm btn-outline btn-info">See More</button></Link>
                 </td>
               </tr>
             ))}

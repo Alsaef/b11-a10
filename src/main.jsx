@@ -15,6 +15,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
   import { ToastContainer, toast } from 'react-toastify';
 import AddPage from './Pages/AddPage.jsx';
 import BrowseListings from './Pages/BrowseListings.jsx';
+import RoommateDetails from './Pages/RoommateDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/browse",
         element: <BrowseListings></BrowseListings>,
+      },
+      {
+        path: "/details/:id",
+        element: <RoommateDetails></RoommateDetails>,
       },
       {
         path: "/my-listings",

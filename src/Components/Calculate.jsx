@@ -19,7 +19,7 @@ const Calculate = () => {
             d="m44.712 38.17-3.431.83a2.063 2.063 0 0 0-1.539 1.572l-.728 3.122c-.09.384-.281.734-.554 1.012a2.068 2.068 0 0 1-.992.564c-.375.09-.768.073-1.134-.052a2.078 2.078 0 0 1-.938-.653l-9.92-11.64-9.92 11.661a2.078 2.078 0 0 1-.938.653 2.038 2.038 0 0 1-1.134.052 2.067 2.067 0 0 1-.992-.563 2.137 2.137 0 0 1-.554-1.012l-.728-3.123a2.13 2.13 0 0 0-.55-1.01 2.06 2.06 0 0 0-.988-.562L6.24 38.19a2.073 2.073 0 0 1-.956-.533 2.14 2.14 0 0 1-.563-.953 2.175 2.175 0 0 1-.015-1.113c.091-.366.276-.7.536-.97l8.11-8.284a14.672 14.672 0 0 0 4.307 4.281 14.34 14.34 0 0 0 5.634 2.134 12.29 12.29 0 0 0 2.183.191c.749 0 1.477-.063 2.184-.19 4.138-.617 7.694-3.017 9.94-6.416l8.11 8.285c1.144 1.147.583 3.165-.998 3.547Zm-18.03-26.532 1.227 2.507c.167.34.603.68.998.743l2.226.383c1.414.233 1.747 1.296.727 2.336l-1.726 1.764c-.29.297-.457.87-.353 1.295l.499 2.188c.395 1.721-.5 2.4-1.996 1.487l-2.08-1.253a1.434 1.434 0 0 0-1.372 0l-2.08 1.253c-1.497.892-2.392.234-1.996-1.487l.499-2.188c.083-.403-.063-.998-.354-1.295l-1.726-1.764c-1.019-1.04-.686-2.081.728-2.336l2.225-.383c.375-.063.811-.403.977-.743l1.227-2.507c.604-1.36 1.685-1.36 2.35 0Z"
             stroke="#FF6D42" strokeWidth="3.473" strokeLinecap="round" strokeLinejoin="round"></path>
         </svg>
-        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9 text-black ml-2">75K+</p>
+        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9  ml-2">75K+</p>
       </div>
       <p className="font-medium text-base sm:text-lg leading-6 mt-3 md:mt-6 text-center">Completed Cases</p>
     </div>
@@ -39,7 +39,7 @@ const Calculate = () => {
             </clipPath>
           </defs>
         </svg>
-        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9 text-black ml-2">4.9</p>
+        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9  ml-2">4.9</p>
       </div>
       <p className="font-medium text-base sm:text-lg leading-6 mt-3 md:mt-6 text-center">Average Expert Rating</p>
     </div>
@@ -60,7 +60,7 @@ const Calculate = () => {
             </clipPath>
           </defs>
         </svg>
-        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9 text-black ml-2">8900+</p>
+        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9  ml-2">8900+</p>
       </div>
       <p className="font-medium text-base sm:text-lg leading-6 mt-3 md:mt-6 text-center">Skilled People</p>
     </div>
@@ -74,7 +74,7 @@ const Calculate = () => {
           <path d="M45.569 24.356v-12.35h-12.35" stroke="#FF6D42" strokeWidth="4.341" strokeLinecap="round"
             strokeLinejoin="round"></path>
         </svg>
-        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9 text-black ml-2">1.5M+</p>
+        <p className="font-bold text-3xl sm:text-4xl lg:text-5xl leading-9  ml-2">1.5M+</p>
       </div>
       <p className="font-medium text-base sm:text-lg leading-6 mt-3 md:mt-6 text-center">CHappy Clients</p>
     </div>
