@@ -34,7 +34,6 @@ const FeaturedRoommates = () => {
               <p><span className="font-semibold">Location:</span> {post.location}</p>
               <p><span className="font-semibold">Rent:</span> {post.rent}৳</p>
               <p><span className="font-semibold">Room Type:</span> {post.roomType}</p>
-              <p><span className="font-semibold">Contact:</span> {post.contact}</p>
               <div className="card-actions justify-end mt-4">
                 <Link to={`/details/${post.id}`} className="btn  btn-outline btn-primary">
                   See More
