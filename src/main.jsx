@@ -12,12 +12,14 @@ import Home from './Pages/Home.jsx';
 import Login from './Pages/Login.jsx';
 import Signup from './Pages/Signup.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
-  import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import AddPage from './Pages/AddPage.jsx';
 import BrowseListings from './Pages/BrowseListings.jsx';
 import RoommateDetails from './Pages/RoommateDetails.jsx';
 import Private from './Private/Private.jsx';
 import MyList from './Pages/MyList.jsx';
+import EditPage from './Pages/EditPage.jsx';
+import NotFoundPage from './Pages/NotFoundPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add",
-        element:<Private><AddPage></AddPage></Private>,
+        element: <Private><AddPage></AddPage></Private>,
       },
       {
         path: "/browse",
@@ -39,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <Private><RoommateDetails></RoommateDetails></Private>,
+      },
+      {
+        path: "/edit/:id",
+        element:<Private> <EditPage ></EditPage></Private>,
+        loader: ({ params }) => fetch(`http://localhost:3000/api/v2/roommates/${params.id}`)
       },
       {
         path: "/my-listings",
@@ -53,6 +60,10 @@ const router = createBrowserRouter([
         element: <Signup></Signup>,
       },
     ]
+  },
+  {
+    path:'*',
+    element:<NotFoundPage></NotFoundPage>
   }
 ]);
 
@@ -64,7 +75,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <ToastContainer/>
+      <ToastContainer />
       <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,

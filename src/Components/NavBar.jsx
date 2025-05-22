@@ -4,6 +4,8 @@ import useTheme from "../hook/useTheme";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Tooltip } from 'react-tooltip';
+
 const Navbar = () => {
      const { theme, toggleTheme } = useTheme();
      const {user,logOut }=useContext(AuthContext)
@@ -66,7 +68,7 @@ const Navbar = () => {
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           {user?.photoURL ? (
-            <img src={user.photoURL} alt={user?.displayName} />
+            <img data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} src={user.photoURL} alt={user?.displayName} />
           ) : (
             <div className="bg-neutral text-neutral-content w-10 h-10 flex items-center justify-center rounded-full">
               <span className="text-xl">
@@ -77,7 +79,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      
+      <Tooltip id="my-tooltip" className="z-50" />
     </div>}
        <button onClick={toggleTheme} className="btn w-[100px] btn-outline rounded-full">
       {theme === "dark" ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-800" />}

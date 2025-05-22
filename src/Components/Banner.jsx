@@ -9,7 +9,11 @@ import "swiper/css/pagination";
 import Image from '../assets/images/images.jpg';
 import Image2 from '../assets/images/images-2.avif';
 import Image3 from '../assets/images/images-3.avif';
+
+
 const Banner = () => {
+
+  
     return (
         <div className="w-full h-[60vh] lg:h-[80vh] mt-1">
       <Swiper
@@ -30,7 +34,7 @@ const Banner = () => {
             />
             <div className="absolute inset-0  flex items-center justify-center">
               <div className="text-white text-center p-4">
-                <h2 className="text-3xl md:text-5xl font-bold">Find Your Perfect Roommate</h2>
+                <h2 className="text-3xl md:text-5xl font-bold">Find Your Perfect Roommate </h2>
                 <p className="text-lg mt-2">Connect with like-minded people and secure a safe stay.</p>
               </div>
             </div>
