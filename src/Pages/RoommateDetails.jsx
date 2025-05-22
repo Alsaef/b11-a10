@@ -13,7 +13,7 @@ const RoommateDetails = () => {
 
   const fetchData = () => {
     axios
-      .get(`http://localhost:3000/api/roommates/${id}?email=${user?.email}`)
+      .get(`https://server-10-nu.vercel.app/api/roommates/${id}?email=${user?.email}`)
       .then((res) => {
         setRoommate(res.data);
         setLoading(false);
@@ -32,7 +32,7 @@ const RoommateDetails = () => {
   const handleLike = () => {
     setLikeLoading(true);
     axios
-      .patch(`http://localhost:3000/api/roommates/${id}/like`, {
+      .patch(`https://server-10-nu.vercel.app/api/roommates/${id}/like`, {
         email: user?.email,
       })
       .then(() => {

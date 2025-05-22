@@ -35,7 +35,7 @@ const AddPost = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/roommates', postData);
+      const response = await axios.post('https://server-10-nu.vercel.app/api/roommates', postData);
       console.log(response.data);
       toast.success('Add Post Successful')
       form.reset();

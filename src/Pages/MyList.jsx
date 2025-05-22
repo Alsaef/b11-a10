@@ -10,7 +10,7 @@ const MyList = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/my-roommates?email=${user?.email}`)
+        axios.get(`https://server-10-nu.vercel.app/api/my-roommates?email=${user?.email}`)
             .then(res => {
                 setListings(res.data);
                 console.log(res.data);
@@ -44,7 +44,7 @@ const MyList = () => {
 
                 console.log(id);
 
-                axios.delete(`http://localhost:3000/api/roommates/${id}`).then(res => {
+                axios.delete(`https://server-10-nu.vercel.app/api/roommates/${id}`).then(res => {
                     console.log(res.data);
                     if (res.data.result.acknowledged === true) {
                         const filter = listings?.filter(list => list._id !== id)
@@ -54,7 +54,7 @@ const MyList = () => {
 
                 Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "has been deleted.",
                     icon: "success"
                 });
             }

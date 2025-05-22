@@ -7,7 +7,7 @@ const BrowseListings = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/all-roommates')
+    axios.get('https://server-10-nu.vercel.app/api/all-roommates')
       .then(res => {
         setListings(res.data);
         console.log(res.data);

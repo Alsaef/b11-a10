@@ -25,7 +25,7 @@ const EditPage = () => {
     };
 
     try {
-      const response = await axios.patch(`http://localhost:3000/api/roommates/${roommate._id}`, updatedData);
+      const response = await axios.patch(`https://server-10-nu.vercel.app/api/roommates/${roommate._id}`, updatedData);
     
 
       if (response.data.result.acknowledged===true) {

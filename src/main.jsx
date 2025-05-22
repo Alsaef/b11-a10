@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: "/edit/:id",
         element:<Private> <EditPage ></EditPage></Private>,
-        loader: ({ params }) => fetch(`http://localhost:3000/api/v2/roommates/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-10-nu.vercel.app/api/v2/roommates/${params.id}`)
       },
       {
         path: "/my-listings",

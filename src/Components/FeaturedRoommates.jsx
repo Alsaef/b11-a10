@@ -7,7 +7,7 @@ const FeaturedRoommates = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/roommates?availability=true&limit=6") // API endpoint
+    axios.get("https://server-10-nu.vercel.app/api/roommates?availability=true&limit=6") // API endpoint
       .then(res => {
         console.log(res.data);
         setPosts(res.data);
