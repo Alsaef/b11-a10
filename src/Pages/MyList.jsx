@@ -82,6 +82,7 @@ const MyList = () => {
                         <thead className="bg-gray-100 text-gray-700 w-full">
                             <tr>
                                 <th className="text-left px-4 py-2">#</th>
+                                <th className="text-left px-4 py-2">Title</th>
                                 <th className="text-left px-4 py-2">Name</th>
                                 <th className="text-left px-4 py-2">Location</th>
                                 <th className="text-left px-4 py-2">Rent (৳)</th>
@@ -94,6 +95,7 @@ const MyList = () => {
                             {listings?.map((item, idx) => (
                                 <tr key={item.id} className="">
                                     <td className="px-4 py-2">{idx + 1}</td>
+                                    <td className="px-4 py-2">{item.title}</td>
                                     <td className="px-4 py-2">{item.name}</td>
                                     <td className="px-4 py-2">{item.location}</td>
                                     <td className="px-4 py-2">{item.rent}</td>
