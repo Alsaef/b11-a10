@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Fade } from 'react-awesome-reveal';
 
 const AddPost = () => {
   const { user } = useContext(AuthContext); // user info from context
@@ -47,7 +48,10 @@ const AddPost = () => {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add to Find Roommate</h2>
+         <Fade direction="up" cascade damping={0.1} triggerOnce>
+          <h2 className="text-2xl font-bold mb-6 text-center">Add to Find Roommate</h2>
+         </Fade>
+      
       <form onSubmit={handleAddPost} className="space-y-4 bg-base-100 p-6 rounded-lg shadow">
         <input name="title" type="text" placeholder="Title (e.g., Looking for a roommate in NYC)" className="input input-bordered w-full" required />
 
