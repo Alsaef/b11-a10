@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import Image from '../assets/images/images.jpg';
 import Image2 from '../assets/images/images-2.avif';
 import Image3 from '../assets/images/images-3.avif';
-
+import { Fade } from "react-awesome-reveal";
 
 const Banner = () => {
 
@@ -34,8 +34,11 @@ const Banner = () => {
             />
             <div className="absolute inset-0  flex items-center justify-center">
               <div className="text-white text-center p-4">
-                <h2 className="text-3xl md:text-5xl font-bold">Find Your Perfect Roommate </h2>
+                <Fade direction="up" cascade damping={0.1} triggerOnce>
+                  <h2 className="text-3xl md:text-5xl font-bold">Find Your Perfect Roommate </h2>
                 <p className="text-lg mt-2">Connect with like-minded people and secure a safe stay.</p>
+                </Fade>
+                
               </div>
             </div>
           </div>
@@ -51,8 +54,11 @@ const Banner = () => {
             />
             <div className="absolute inset-0  flex items-center justify-center">
               <div className="text-white text-center p-4">
+                  <Fade direction="up" cascade damping={0.1} triggerOnce>
+
                 <h2 className="text-3xl md:text-5xl font-bold">Affordable Living Options</h2>
                 <p className="text-lg mt-2">Browse clean and budget-friendly spaces.</p>
+                  </Fade>
               </div>
             </div>
           </div>
@@ -68,8 +74,11 @@ const Banner = () => {
             />
             <div className="absolute inset-0  flex items-center justify-center">
               <div className="text-white text-center p-4">
+                  <Fade direction="up" cascade damping={0.1} triggerOnce>
+
                 <h2 className="text-3xl md:text-5xl font-bold">Trusted Community Platform</h2>
                 <p className="text-lg mt-2">All roommates and listings are verified for your safety.</p>
+                  </Fade>
               </div>
             </div>
           </div>
