@@ -21,7 +21,8 @@ const EditPage = () => {
       contact: form.contact.value,
       availability: form.availability.value,
       email: form.email.value,
-      name: form.name.value
+      name: form.name.value,
+      description:form.description.value
     };
 
     try {
@@ -58,12 +59,15 @@ const EditPage = () => {
         </select>
 
         <select name="lifestyle" defaultValue={roommate.lifestyle} className="select select-bordered w-full" required>
-          <option value="">Select Lifestyle</option>
+          <option value="">Select Lifestyle Preference</option>
+          <option value="Pets Allowed">Pets Allowed</option>
           <option value="Smoking">Smoking</option>
           <option value="Night Owl">Night Owl</option>
-          <option value="etc">Etc</option>
+          <option value="Early Bird">Early Bird</option>
+          <option value="Clean and Quiet">Clean and Quiet</option>
+          <option value="Etc">Etc</option>
         </select>
-
+  <textarea  defaultValue={roommate.description} name="description" rows="4" placeholder="Short description about the room or your preferences" className="textarea textarea-bordered w-full" required></textarea>
         <input name="contact" type="text" defaultValue={roommate.contact} placeholder="Contact Info" className="input input-bordered w-full" required />
 
         <select name="availability" defaultValue={roommate.availability} className="select select-bordered w-full" required>

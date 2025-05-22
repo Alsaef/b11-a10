@@ -71,6 +71,7 @@ const RoommateDetails = () => {
           <p><span className="font-semibold">Name:</span> {roommate.name}</p>
           <p><span className="font-semibold">Location:</span> {roommate.location}</p>
           <p><span className="font-semibold">Room Type:</span> {roommate.roomType}</p>
+          <p><span className="font-semibold">Life Style:</span> {roommate.lifestyle}</p>
           <p><span className="font-semibold">Rent:</span> ৳{roommate.rent}</p>
           <p>
             <span className="font-semibold">Availability:</span>{" "}
@@ -103,6 +104,7 @@ const RoommateDetails = () => {
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
       </div>
+      <p><span className="font-semibold">Description: </span>{roommate.description}</p>
     </div>
   );
 };
