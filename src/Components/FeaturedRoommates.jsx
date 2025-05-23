@@ -9,9 +9,9 @@ const FeaturedRoommates = () => {
   useEffect(() => {
     axios.get("https://server-10-nu.vercel.app/api/roommates?availability=true&limit=6") // API endpoint
       .then(res => {
-        console.log(res.data);
-        setPosts(res.data);
-        setLoading(false);
+      console.log(res.data)
+      setPosts(res.data)
+      setLoading(false)
       });
   }, []);
 

@@ -7,7 +7,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  
 
   const handleAddPost = async (e) => {
     e.preventDefault();

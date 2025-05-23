@@ -28,7 +28,7 @@ const RoommateDetails = () => {
     fetchData();
   }, [id, user]);
 
-  
+  const isOwnPost = roommate?.email === user?.email;
   const handleLike = () => {
     setLikeLoading(true);
     axios
@@ -93,13 +93,20 @@ const RoommateDetails = () => {
             <p className="text-red-500 mt-2">🔒 Contact info is locked. Like to unlock.</p>
           )}
 
-          <button
-            onClick={handleLike}
-            disabled={alreadyLiked || likeLoading}
-            className={`btn btn-sm mt-4 ${alreadyLiked ? "btn-disabled bg-gray-300" : "btn-primary"}`}
-          >
-            {likeLoading ? "Liking..." : alreadyLiked ? "Liked" : "Like"}
-          </button>
+        <button
+  onClick={handleLike}
+  disabled={alreadyLiked || likeLoading || isOwnPost}
+  className={`btn btn-sm mt-4 ${alreadyLiked || isOwnPost ? "btn-disabled bg-gray-300" : "btn-primary"}`}
+>
+  {likeLoading
+    ? "Liking..."
+    : isOwnPost
+    ? "Can't Like Own Post"
+    : alreadyLiked
+    ? "Liked"
+    : "Like"}
+</button>
+
 
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>

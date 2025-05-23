@@ -18,11 +18,12 @@ const MyList = () => {
                 console.log(res.data);
             })
             .catch(err => {
-                console.error('Error fetching data:', err);
-                setLoading(false);
+               console.log('error fetch',err)
+               setLoading(false)
             });
     }, []);
 
+    
 
 
 

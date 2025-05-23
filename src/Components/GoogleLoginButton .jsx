@@ -9,8 +9,8 @@ const GoogleLoginButton = () => {
   const navigate=useNavigate()
   const handelGoogle = () => {
     googleLogin().then((result) => {
-      toast.success(`Login Successful`)
-      navigate('/')
+     toast.success('Login Successful')
+     navigate('/')
     }).catch((error) => {
       toast.error(error)
     })

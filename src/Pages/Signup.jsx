@@ -7,7 +7,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 const Signup = () => {
     const {createAccount}=useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate()
+    const navigate=useNavigate()
     const handleSignup = (e) => {
         e.preventDefault();
         const form = e.target;
