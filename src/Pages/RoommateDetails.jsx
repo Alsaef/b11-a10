@@ -27,8 +27,6 @@ const RoommateDetails = () => {
   useEffect(() => {
     fetchData();
   }, [id, user]);
-
-  const isOwnPost = roommate?.email === user?.email;
   const handleLike = () => {
     setLikeLoading(true);
     axios
@@ -39,8 +37,8 @@ const RoommateDetails = () => {
         fetchData(); // Like new fetching
       })
       .catch((err) => {
-        if (err.response?.status === 409) {
-          setError("Already liked.");
+        if (err.response?.status === 403) {
+          setError("You can't like your own post"); 
         } else {
           setError("Failed to like.");
         }
@@ -60,7 +58,9 @@ const RoommateDetails = () => {
     return <p className="text-center text-red-500 mt-10">Roommate not found</p>;
   }
 
-  const alreadyLiked = roommate?.likedUsers?.includes(user?.email);
+
+
+  
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-base-100 shadow-md rounded-xl mt-8">
@@ -85,7 +85,7 @@ const RoommateDetails = () => {
 
         <div>
           <p><span className="font-semibold">Posted At:</span> {new Date(roommate.createdAt).toLocaleString()}</p>
-          <p><span className="font-semibold">Likes:</span> {roommate.likeCount || 0}</p>
+          <p><span className="font-semibold">Likes:</span> <span className="font-bold">{roommate.likeCount || 0}</span> people interested in.</p>
 
           {roommate.contact ? (
             <p className="text-green-600 font-semibold mt-2">📞 Contact: {roommate.contact}</p>
@@ -93,19 +93,23 @@ const RoommateDetails = () => {
             <p className="text-red-500 mt-2">🔒 Contact info is locked. Like to unlock.</p>
           )}
 
-        <button
-  onClick={handleLike}
-  disabled={alreadyLiked || likeLoading || isOwnPost}
-  className={`btn btn-sm mt-4 ${alreadyLiked || isOwnPost ? "btn-disabled bg-gray-300" : "btn-primary"}`}
->
-  {likeLoading
-    ? "Liking..."
-    : isOwnPost
-    ? "Can't Like Own Post"
-    : alreadyLiked
-    ? "Liked"
-    : "Like"}
-</button>
+{roommate?.email === user?.email ? (
+  <button
+    disabled
+    className="btn btn-sm mt-4 btn-disabled bg-gray-300 text-gray-500 cursor-not-allowed"
+  >
+    You can't like your own post
+  </button>
+) : (
+  <button
+    onClick={handleLike}
+    disabled={likeLoading}
+    className="btn btn-sm mt-4 btn-primary"
+  >
+    {likeLoading ? "Liking..." : "Like"}
+  </button>
+)}
+
 
 
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
