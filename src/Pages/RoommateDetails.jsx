@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import {} from 'react-icons';
+import { toast } from "react-toastify";
 const RoommateDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
@@ -28,6 +29,10 @@ const RoommateDetails = () => {
     fetchData();
   }, [id, user]);
   const handleLike = () => {
+    if (!user) {
+      toast.error('Please Login Your Account')
+      return
+    }
     setLikeLoading(true);
     axios
       .patch(`https://server-10-nu.vercel.app/api/roommates/${id}/like`, {
@@ -63,11 +68,12 @@ const RoommateDetails = () => {
   
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-base-100 shadow-md rounded-xl mt-8">
+    <div className="max-w-4xl mx-auto p-6 bg-base-100 shadow-md rounded-xl mt-14">
       <h2 className="text-2xl font-bold mb-4">{roommate.title}</h2>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
+          <img src={roommate?.image} className="my-3" alt="" />
           <p><span className="font-semibold">Name:</span> {roommate.name}</p>
           <p><span className="font-semibold">Location:</span> {roommate.location}</p>
           <p><span className="font-semibold">Room Type:</span> {roommate.roomType}</p>

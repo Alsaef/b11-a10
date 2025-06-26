@@ -2,7 +2,7 @@ import React from 'react';
 
 const Calculate = () => {
     return (
-        <div className='lg:px-10 md:px-7 px-5 mt-16'>
+        <div className='lg:px-10 md:px-7 px-5 mt-16 my-16'>
             <div className="flex  flex-col mt-20">
   <p className="font-bold text-2xl md:text-3xl text-center">Our Outstanding Achievements</p>
   <div

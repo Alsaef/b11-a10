@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../assets/images/logo.png';
-import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -15,35 +16,59 @@ const Footer = () => {
                     </p>
                 </aside>
 
+                {/* Relevant Links */}
                 <nav>
-                    <h6 className="footer-title">Contact</h6>
-                    <p className="link link-hover">NY Apartment</p>
-                    <p className="link link-hover">123 Main Street, New York, NY 10001</p>
-                    <p className="link link-hover">Phone: +1 (212) 555-1234</p>
-                    <p className="link link-hover">Email: info@nyapartment.com</p>
+                    <h6 className="footer-title uppercase">Links</h6>
+                    <ul>
+                        <li>
+                            <Link className="link link-hover" to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/browse">All Roommates</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/about">About Us</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/contact">Contact Us</Link>
+                        </li>
+                    </ul>
                 </nav>
-
 
                 {/* Terms & Policy */}
                 <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms & Conditions</a>
-                    <a className="link link-hover">Privacy Policy</a>
-                    <a className="link link-hover">Cookie Policy</a>
+                    <h6 className="footer-title uppercase">Legal</h6>
+                    <ul>
+                        <li>
+                            <Link className="link link-hover" to="/terms">Terms & Conditions</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/privacy">Privacy Policy</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/faq">FAQ</Link>
+                        </li>
+                        <li>
+                            <Link className="link link-hover" to="/support">Support</Link>
+                        </li>
+                    </ul>
                 </nav>
 
                 {/* Social Media */}
                 <nav>
-                    <h6 className="footer-title">Social</h6>
+                    <h6 className="footer-title uppercase">Social</h6>
                     <div className="flex gap-4">
                         <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                            <FaFacebook className="text-xl hover:text-blue-600" />
+                            <FaFacebook className="text-3xl hover:text-blue-600" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                            <FaTwitter className="text-xl hover:text-sky-500" />
+                        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+                            <FaLinkedin className="text-3xl hover:text-blue-700" />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                            <FaInstagram className="text-3xl hover:text-pink-700" />
                         </a>
                         <a href="https://youtube.com" target="_blank" rel="noreferrer">
-                            <FaYoutube className="text-xl hover:text-red-600" />
+                            <FaYoutube className="text-3xl hover:text-red-700" />
                         </a>
                     </div>
                 </nav>

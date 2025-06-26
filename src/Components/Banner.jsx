@@ -15,7 +15,7 @@ const Banner = () => {
 
   
     return (
-        <div className="w-full h-[60vh] lg:h-[80vh] mt-1">
+        <div className="w-full h-[70vh] lg:h-[70vh] mt-1">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation

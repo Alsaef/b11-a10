@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const FeaturedRoommates = () => {
+const TopRoomate = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("https://server-10-nu.vercel.app/api/roommates?availability=true&limit=6") // API endpoint
+    axios.get("https://server-10-nu.vercel.app/api/top-roommates") // API endpoint
       .then(res => {
       console.log(res.data)
       setPosts(res.data)
@@ -25,8 +25,8 @@ const FeaturedRoommates = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 my-16">
-      <h2 className="text-4xl font-extrabold text-center mb-10 text-primary ">🌟 Featured Roommates</h2>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mx-auto w-[98%] py-16">
+      <h2 className="text-4xl font-extrabold text-center mb-10 text-primary">🌟 Top Roommates</h2>
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mx-auto w-[98%] py-10">
         {posts.map(post => (
           <div
             key={post._id}
@@ -44,6 +44,10 @@ const FeaturedRoommates = () => {
               <p className="text-gray-600 mb-3">
                 <span className="font-semibold">Description:</span>{" "}
                 {post.description?.slice(0, 50)}...
+              </p>
+              <p className="text-gray-600 mb-3">
+                <span className="font-semibold">Likes:</span>{" "}
+                {post.likeCount}
               </p>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">
@@ -69,4 +73,4 @@ const FeaturedRoommates = () => {
   );
 };
 
-export default FeaturedRoommates;
+export default TopRoomate;

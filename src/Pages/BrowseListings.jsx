@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 const BrowseListings = () => {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [filterText, setFilterText] = useState('');
 
   useEffect(() => {
     axios.get('https://server-10-nu.vercel.app/api/all-roommates')
       .then(res => {
         setListings(res.data);
-        console.log(res.data);
         setLoading(false);
       })
       .catch(err => {
-        console.error('Error fetching data:', err);
         setLoading(false);
       });
   }, []);
@@ -27,47 +27,76 @@ const BrowseListings = () => {
     );
   }
 
-  return (
-    <div className="px-4 py-10">
-      <h2 className="text-2xl font-bold text-center mb-6">Browse Listings</h2>
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+  };
 
-      {/* Responsive container with horizontal scroll on small devices */}
-      <div className="w-full overflow-x-auto">
-        <table className="min-w-[700px] w-full border border-gray-200 text-sm">
-          <thead className="bg-gray-100 text-gray-700">
-            <tr>
-              <th className="text-left px-4 py-2">#</th>
-              <th className="text-left px-4 py-2">Title</th>
-              <th className="text-left px-4 py-2">Name</th>
-              <th className="text-left px-4 py-2">Location</th>
-              <th className="text-left px-4 py-2">Rent (৳)</th>
-              <th className="text-left px-4 py-2">Availability</th>
-              <th className="text-left px-4 py-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listings.map((item, idx) => (
-              <tr key={item.id} className="">
-                <td className="px-4 py-2">{idx + 1}</td>
-                <td className="px-4 py-2">{item.title}</td>
-                <td className="px-4 py-2">{item.name}</td>
-                <td className="px-4 py-2">{item.location}</td>
-                <td className="px-4 py-2">{item.rent}</td>
-                <td className="px-4 py-2">
-                  <span className={`px-2 py-1 rounded text-xs font-medium ${item.availability === 'Available'
-                    ? 'bg-green-100 text-green-700'
-                    : 'bg-red-100 text-red-700'
-                    }`}>
-                    {item.availability}
-                  </span>
-                </td>
-                <td className="px-4 py-2">
-                  <Link to={`/details/${item._id}`}>  <button className="btn btn-sm btn-outline btn-info">See More</button></Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+
+  // Filter and sort listings
+  const filteredListings = listings
+    .filter(post =>
+      post.name.toLowerCase().includes(filterText.toLowerCase()) ||
+      post.location.toLowerCase().includes(filterText.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.rent - b.rent;
+      } else {
+        return b.rent - a.rent;
+      }
+    });
+  return (
+    <div className="px-4 py-10 mx-auto w-[95%]">
+      <h2 className="text-2xl font-bold text-center mb-6">Browse Listings</h2>
+      <div className="flex flex-col sm:flex-row items-center justify-end mb-6 gap-4">
+        <select
+          value={sortOrder}
+          onChange={handleSortChange}
+          className="select select-bordered w-full sm:w-40"
+        >
+          <option value="asc">Rent: Low to High</option>
+          <option value="desc">Rent: High to Low</option>
+        </select>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {filteredListings.map(post => (
+          <div
+            key={post._id}
+            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col"
+          >
+            <div className="h-48 w-full overflow-hidden">
+              <img
+                src={post.image}
+                alt={post.name}
+                className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex-1 flex flex-col">
+              <h3 className="text-2xl font-bold mb-2 text-gray-800">{post.name}</h3>
+              <p className="text-gray-600 mb-3">
+                <span className="font-semibold">Description:</span>{" "}
+                {post.description?.slice(0, 50)}...
+              </p>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-gray-500">
+                  <span className="font-semibold">Location:</span> {post.location}
+                </span>
+                <span className="text-sm text-primary font-semibold">
+                  {post.rent}৳
+                </span>
+              </div>
+              <div className="mt-auto pt-4">
+                <Link
+                  to={`/details/${post._id}`}
+                  className="btn btn-primary w-full rounded-full"
+                >
+                  See More
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

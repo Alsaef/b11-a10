@@ -20,6 +20,11 @@ import Private from './Private/Private.jsx';
 import MyList from './Pages/MyList.jsx';
 import EditPage from './Pages/EditPage.jsx';
 import NotFoundPage from './Pages/NotFoundPage.jsx';
+import AboutUs from './Pages/AboutUs.jsx';
+import Contact from './Pages/Contact.jsx';
+import DashboardRoot from './Root/DashboardRoot.jsx';
+import Overview from './Pages/Overview.jsx';
+import AllItem from './Pages/AllItem.jsx';
 
 
 const router = createBrowserRouter([
@@ -31,8 +36,12 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/add",
-        element: <Private><AddPage></AddPage></Private>,
+        path: "/about",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/browse",
@@ -40,16 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <Private><RoommateDetails></RoommateDetails></Private>,
-      },
-      {
-        path: "/edit/:id",
-        element:<Private> <EditPage ></EditPage></Private>,
-        loader: ({ params }) => fetch(`https://server-10-nu.vercel.app/api/v2/roommates/${params.id}`)
-      },
-      {
-        path: "/my-listings",
-        element: <Private><MyList></MyList></Private>
+        element: <RoommateDetails></RoommateDetails>,
       },
       {
         path: "/login",
@@ -62,8 +62,36 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:'*',
-    element:<NotFoundPage></NotFoundPage>
+    path: 'dashboard',
+    element: <Private><DashboardRoot></DashboardRoot></Private>,
+    children: [
+      {
+        index: true,
+        element: <Overview></Overview>
+      },
+      {
+        path: "/dashboard/add-roommate-post",
+        element: <AddPage></AddPage>
+      },
+      {
+        path: "/dashboard/my-posts",
+        element: <MyList></MyList>
+      },
+      {
+        path: "/dashboard/all-aoommates",
+        element: <AllItem></AllItem>
+      },
+         {
+        path: "/dashboard/edit/:id",
+        element:<EditPage ></EditPage>,
+        loader: ({ params }) => fetch(`https://server-10-nu.vercel.app/api/v2/roommates/${params.id}`)
+      },
+
+    ]
+  },
+  {
+    path: '*',
+    element: <NotFoundPage></NotFoundPage>
   }
 ]);
 

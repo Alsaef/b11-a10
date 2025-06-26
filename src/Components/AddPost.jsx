@@ -14,6 +14,7 @@ const AddPost = () => {
     const form = e.target;
     const title = form.title.value;
     const location = form.location.value;
+    const image = form.image.value;
     const rent = form.rent.value;
     const roomType = form.roomType.value;
     const lifestyle = form.lifestyle.value;
@@ -34,6 +35,7 @@ const AddPost = () => {
       email,
       name,
       description,
+      image
     };
 
     try {
@@ -59,6 +61,7 @@ const AddPost = () => {
         <input name="location" type="text" placeholder="Location" className="input input-bordered w-full" required />
 
         <input name="rent" type="number" placeholder="Rent Amount" className="input input-bordered w-full" required />
+        <input name="image" type="url" placeholder="Image" className="input input-bordered w-full" required />
 
         <select name="roomType" className="select select-bordered w-full" required>
           <option value="">Select Room Type</option>

@@ -109,7 +109,7 @@ const MyList = () => {
                                         </span>
                                     </td>
                                     <td className="px-4 py-2">
-                                        <Link to={`/edit/${item._id}`}>  <button className="btn btn-sm btn-outline btn-info">Edit</button></Link>
+                                        <Link to={`/dashboard/edit/${item._id}`}>  <button className="btn btn-sm btn-outline btn-info">Edit</button></Link>
                                     </td>
                                     <td className="px-4 py-2">
                                         <button onClick={() => handelDelete(item._id)} className="btn btn-sm btn-outline btn-error">Delete</button>

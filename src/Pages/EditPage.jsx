@@ -15,6 +15,7 @@ const EditPage = () => {
     const updatedData = {
       title: form.title.value,
       location: form.location.value,
+      image: form.image.value,
       rent: form.rent.value,
       roomType: form.roomType.value,
       lifestyle: form.lifestyle.value,
@@ -51,6 +52,7 @@ const EditPage = () => {
         <input name="location" type="text" defaultValue={roommate.location} placeholder="Location" className="input input-bordered w-full" required />
 
         <input name="rent" type="number" defaultValue={roommate.rent} placeholder="Rent Amount" className="input input-bordered w-full" required />
+        <input name="image" type="url" defaultValue={roommate.image} placeholder="image" className="input input-bordered w-full" required />
 
         <select name="roomType" defaultValue={roommate.roomType} className="select select-bordered w-full" required>
           <option value="">Select Room Type</option>

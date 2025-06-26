@@ -2,10 +2,10 @@ import React from 'react';
 
 const Subscription = () => {
     return (
-        <div className='lg:px-10 md:px-7 px-5 mt-14'>
+        <div className='lg:px-10 md:px-7 px-5 my-16'>
          <section className="mt-24">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-blue-600 py-10 px-8 md:py-16 md:px-12 aos-init">
+        <div className="relative bg-[#3B25C1] py-10 px-8 md:py-16 md:px-12 aos-init">
             <div className="absolute right-0 top-0 -ml-40 pointer-events-none" aria-hidden="true">
                 <svg width="238" height="110" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -27,7 +27,7 @@ const Subscription = () => {
                 </div>
                 <form className="w-full lg:w-1/2">
                     <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
-                        <input type="email" className="w-full appearance-none bg-blue-700 border border-blue-500 focus:border-blue-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-blue-400" placeholder="Your best email…" aria-label="Your best email…"/>
+                        <input type="email" className="w-full appearance-none bg-white border border-blue-500 focus:border-blue-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-blue-400" placeholder="Your best email…" aria-label="Your best email…"/>
                         <a className="flex justify-center items-center font-semibold p-2 text-blue-600 bg-blue-100 hover:bg-white shadow"
                             href="#0">
                             Subscribe
